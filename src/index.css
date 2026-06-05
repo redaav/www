@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f5f5f5;
+}
+
+@layer base {
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply flex flex-col h-full bg-gray-50;
+  }
+
+  .bottom-sheet {
+    @apply fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl transition-transform duration-300 ease-out;
+  }
+
+  .btn-primary {
+    @apply bg-primary-500 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 active:scale-95 hover:bg-primary-600;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-100 text-gray-800 font-semibold py-3 px-6 rounded-xl transition-all duration-200 active:scale-95 hover:bg-gray-200;
+  }
+
+  .input-field {
+    @apply w-full bg-gray-100 rounded-xl px-4 py-3 text-sm outline-none transition-all duration-200 focus:ring-2 focus:ring-primary-500 focus:bg-white;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-gray-100;
+  }
+}
+
+.slide-up-enter {
+  transform: translateY(100%);
+}
+.slide-up-enter-active {
+  transform: translateY(0);
+}
+
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+.animate-route {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-route 2s ease-out forwards;
+}
+
+@keyframes draw-route {
+  to { stroke-dashoffset: 0; }
+}
+
+.car-move {
+  animation: car-drive 3s ease-in-out infinite;
+}
+
+@keyframes car-drive {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(10px); }
+}
