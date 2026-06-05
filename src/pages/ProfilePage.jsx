@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ArrowLeft, User, Mail, Phone, Camera, ChevronRight, Shield, Heart, HelpCircle, LogOut } from 'lucide-react'
+import { ArrowLeft, User, Mail, Phone, Camera, ChevronRight, Shield, Heart, CircleHelp as HelpCircle, LogOut } from 'lucide-react'
 import { useAppStore } from '../stores/StoreContext'
 
 export default function ProfilePage() {
